@@ -13,12 +13,12 @@ COPY app app
 COPY student_public.pem .
 COPY instructor_public.pem .
 
-# Create data directory
-RUN mkdir -p /data
+# Create data directory inside container (optional)
+RUN mkdir -p /app/data
 
-# Copy seed files
-COPY encrypted_seed.txt /data/seed.txt
-COPY encrypted_seed.sig /data/seed.sig
+# Copy seed files from local project data folder
+COPY data/encrypted_seed.txt /app/data/seed.txt
+COPY data/encrypted_seed.sig /app/data/seed.sig
 
 EXPOSE 8000
 
