@@ -1,12 +1,10 @@
-version: "3.9"
-
 services:
   app:
     build: .
     ports:
       - "8000:8000"
     volumes:
-      - data-volume:/data   # named volume used by app
+      - data-volume:/data
 
 volumes:
-  data-volume:              # define the named volume here
+  data-volume:
