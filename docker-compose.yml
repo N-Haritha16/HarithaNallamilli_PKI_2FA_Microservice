@@ -6,5 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - data-volume:/data
+      - data-volume:/data   # named volume used by app
 
+volumes:
+  data-volume:              # define the named volume here
