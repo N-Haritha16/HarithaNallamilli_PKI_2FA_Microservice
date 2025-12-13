@@ -2,7 +2,9 @@ import base64
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from .config import SEED_PATH, SEED_SIG_PATH, INSTRUCTOR_PUBLIC_KEY, INSTRUCTOR_PRIVATE_KEY, TOTP_WINDOW
+from .config import SEED_PATH, INSTRUCTOR_PUBLIC_KEY, INSTRUCTOR_PRIVATE_KEY, TOTP_WINDOW
+
+
 from .crypto_utils import decrypt_seed, verify_signature
 from .totp_utils import generate_totp, verify_totp
 

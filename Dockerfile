@@ -9,17 +9,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY app app
 
-# Copy public keys
-COPY student_public.pem .
-COPY instructor_public.pem .
+# Copy public & private keys
+COPY student_public.pem /app/
+COPY instructor_public.pem /app/
+COPY instructor_private.pem /app/
 
-# Create data directory inside container (optional)
-RUN mkdir -p /data /cron
-COPY cron/task_code.txt /cron/task_code.txt
+# Create data and cron directories
+RUN mkdir -p /app/data /app/cron
 
-# Copy seed files from local project data folder
-COPY data/encrypted_seed.txt /app/data/seed.txt
-COPY data/encrypted_seed.sig /app/data/seed.sig
+# Copy cron and seed files
+COPY data/cron/task_code.txt /app/cron/task_code.txt
+COPY data/encrypted_seed.txt /app/data/encrypted_seed.txt
+COPY data/encrypted_seed.sig /app/data/encrypted_seed.sig
 
 EXPOSE 8000
 
