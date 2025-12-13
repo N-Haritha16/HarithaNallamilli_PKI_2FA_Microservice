@@ -111,8 +111,9 @@ Docker Desktop requires administrator privileges and hardware virtualization.
 
 This system does not grant administrator access, so Docker could not be installed locally.
 
+The application was successfully built and executed using GitHub Codespaces, and the Dockerfile and docker-compose.yml are included and verified for correctness and standards compliance.
+
 All cryptographic logic, API endpoints, and tests were executed successfully in a local Python environment.
-The Dockerfile and docker-compose.yml are included and verified for correctness and standards compliance.
 
 ## 🔒 Security Notes
 
