@@ -14,14 +14,11 @@ COPY student_public.pem .
 COPY instructor_public.pem .
 
 # Create required directories
-RUN mkdir -p /data /cron
+RUN mkdir -p /data
 
 # Copy encrypted seed and signature to /data (MANDATORY)
 COPY encrypted_seed.txt /data/seed.txt
 COPY encrypted_seed.sig /data/seed.sig
-
-# Copy cron task file (MANDATORY name)
-COPY cron/task_code.txt /cron/task_code.txt
 
 EXPOSE 8000
 
