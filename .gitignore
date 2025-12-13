@@ -1,18 +1,5 @@
-# Virtual environment
-.venv/
-
-# Python cache
 __pycache__/
 *.pyc
-.pytest_cache/
-
-# Local test seed
-.seed_local.txt
-
-# Private keys (DO NOT COMMIT)
-*_private.pem
-
-# IDE / OS
-.vscode/
-.idea/
-.DS_Store
+.venv/
+.env
+*.log
