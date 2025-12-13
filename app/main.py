@@ -2,11 +2,7 @@ import base64
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from .config import (
-    SEED_PATH,
-    STUDENT_PUBLIC_KEY,
-    TOTP_WINDOW,
-)
+from .config import SEED_PATH, STUDENT_PUBLIC_KEY, TOTP_WINDOW
 from .crypto_utils import verify_signature
 from .totp_utils import generate_totp, verify_totp
 
@@ -40,11 +36,10 @@ def accept_seed(req: SeedRequest):
     return {"status": "seed stored"}
 
 
-
 @app.get("/generate-2fa")
 def generate_2fa():
     if not SEED_PATH.exists():
-        raise HTTPException(400, "Seed not initialized")
+        raise HTTPException(status_code=400, detail="Seed not initialized")
 
     seed = SEED_PATH.read_text()
     secret = base64.b32encode(seed.encode()).decode()
@@ -54,10 +49,8 @@ def generate_2fa():
 @app.post("/verify-2fa")
 def verify_2fa_endpoint(req: VerifyRequest):
     if not SEED_PATH.exists():
-        raise HTTPException(400, "Seed not initialized")
+        raise HTTPException(status_code=400, detail="Seed not initialized")
 
     seed = SEED_PATH.read_text()
     secret = base64.b32encode(seed.encode()).decode()
-    return {
-        "valid": verify_totp(secret, req.token, TOTP_WINDOW)
-    }
+    return {"valid": verify_totp(secret, req.token, TOTP_WINDOW)}
