@@ -1,14 +1,14 @@
+# app/config.py
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Paths to seed files
-SEED_PATH = BASE_DIR / "data/encrypted_seed.txt"
-SEED_SIG_PATH = BASE_DIR / "data/encrypted_seed.sig"   # <-- add this
+DATA_DIR = Path("/data")
+DATA_DIR.mkdir(exist_ok=True)
 
-# Paths to keys
-INSTRUCTOR_PRIVATE_KEY = BASE_DIR / "instructor_private.pem"
+SEED_PATH = DATA_DIR / "seed.txt"
+
+STUDENT_PUBLIC_KEY = BASE_DIR / "student_public.pem"
 INSTRUCTOR_PUBLIC_KEY = BASE_DIR / "instructor_public.pem"
 
-# TOTP settings
-TOTP_WINDOW = 1  # valid code window
+TOTP_WINDOW = 1
