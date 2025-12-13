@@ -22,7 +22,6 @@ class VerifyRequest(BaseModel):
 def health():
     return {"status": "ok"}
 
-
 @app.post("/accept-seed")
 def accept_seed(req: SeedRequest):
     if not verify_signature(
@@ -34,6 +33,7 @@ def accept_seed(req: SeedRequest):
 
     SEED_PATH.write_text(req.encrypted_seed)
     return {"status": "seed stored"}
+
 
 
 @app.get("/generate-2fa")
