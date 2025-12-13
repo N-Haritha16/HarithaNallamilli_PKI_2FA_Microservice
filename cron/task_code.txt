@@ -1,1 +1,2 @@
-# Optional cron tasks for microservice
+echo "cron ok"
+

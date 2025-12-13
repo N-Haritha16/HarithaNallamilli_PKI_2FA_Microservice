@@ -14,7 +14,8 @@ COPY student_public.pem .
 COPY instructor_public.pem .
 
 # Create data directory inside container (optional)
-RUN mkdir -p /app/data
+RUN mkdir -p /data /cron
+COPY cron/task_code.txt /cron/task_code.txt
 
 # Copy seed files from local project data folder
 COPY data/encrypted_seed.txt /app/data/seed.txt
