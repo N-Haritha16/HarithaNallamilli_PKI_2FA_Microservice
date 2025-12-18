@@ -22,7 +22,7 @@ COPY data/cron/task_code.txt /app/cron/task_code.txt
 COPY data/encrypted_seed.txt /app/data/encrypted_seed.txt
 COPY data/encrypted_seed.sig /app/data/encrypted_seed.sig
 
-EXPOSE 8000
+EXPOSE 8080
 
 # Start FastAPI
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
