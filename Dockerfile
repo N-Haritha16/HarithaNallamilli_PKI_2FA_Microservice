@@ -18,7 +18,7 @@ COPY instructor_private.pem /app/
 RUN mkdir -p /app/data /app/cron
 
 # Copy cron and seed files
-COPY data/cron/task_code.txt /app/cron/task_code.txt
+COPY data/cron/last_code.txt /app/cron/last_code.txt
 COPY data/encrypted_seed.txt /app/data/encrypted_seed.txt
 COPY data/encrypted_seed.sig /app/data/encrypted_seed.sig
 
