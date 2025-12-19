@@ -47,9 +47,9 @@ COPY instructor_private.pem .
 # Copy initial persistent files (will be overridden by volumes)
 COPY data/encrypted_seed.txt /data/encrypted_seed.txt
 COPY data/encrypted_seed.sig /data/encrypted_seed.sig
-COPY data/cron/last_code.txt /cron/last_code.txt
+COPY cron/last_code.txt /cron/last_code.txt
 
-COPY 2fa-cron /etc/cron.d/2fa-cron
+COPY cron/2fa-cron /etc/cron.d/2fa-cron
 
 # Set permissions
 RUN chmod 0644 /etc/cron.d/2fa-cron && \
