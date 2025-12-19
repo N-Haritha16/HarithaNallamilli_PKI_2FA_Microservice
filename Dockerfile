@@ -50,7 +50,7 @@ COPY data/encrypted_seed.sig /data/encrypted_seed.sig
 COPY data/cron/last_code.txt /cron/last_code.txt
 
 # Copy cron job file
-COPY 2fa_cron /etc/cron.d/2fa_cron
+COPY 2fa-cron /etc/cron.d/2fa-cron
 # Set permissions
 RUN chmod 0644 /etc/cron.d/2fa-cron && \
     crontab /etc/cron.d/2fa-cron && \
